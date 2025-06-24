@@ -45,12 +45,14 @@ public class HandTracker : MonoBehaviour
     void Update()
     {
         string data = uDPListner.data;
+
         if (string.IsNullOrEmpty(data)) return;
 
+        // PREPARE DATA
         data = data.Trim('[', ']');
         string[] point_str = data.Split(',');
 
-
+        // MOVE BONES AND JOINTS
         for (int i = 0; i < 21; i++)
         {
             float x = 5 - float.Parse(point_str[i * 3]) / 100;

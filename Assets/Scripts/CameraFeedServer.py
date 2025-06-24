@@ -34,13 +34,9 @@ while True:
             for landmark in landmarks.landmark:
                 data.extend([landmark.x * width, height -  (landmark.y * height),landmark.z * width])
 
-            print(data)
+            # print(data)
             sock.sendto(str.encode(str(data)),  serverAddPort)
             
-            # thumb_tip = landmarks.landmark[4]
-            # index_tip = landmarks.landmark[8]
-            # dist = math.sqrt((thumb_tip.x-index_tip.x) ** 2 + (thumb_tip.y-index_tip.y)**2)
-            # print('dist: ' , dist)
             
         img = cv2.resize(img,(0,0), None, 0.25,0.25)
         img = cv2.flip(img, 1)
